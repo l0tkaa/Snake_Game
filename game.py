@@ -20,10 +20,6 @@ class Game:
         pygame.font.init()
         self.font = pygame.font.SysFont("Arial",24)
         self.score_manager = ScoreManager()
-    
-
-        self.high_scores.append((name, self.score)) #add new score
-        self.high_scores.sort(key=lambda x: x[1], reverse=True) #sort descending
 
 
 
@@ -33,12 +29,55 @@ class Game:
 
             if not self.paused:
                 self.update()
+
             self.draw()
             self.clock.tick(self.fps)
+
             self.enter_name()
-            self.save_high_scores()
-            self.show_high_scores()
-        #modify to use game_manager
+            self.score_manager.display_high_scores() #show scores in terminal
+
+    
+# ask for the players name after the game is over
+    def enter_name(self):
+        name = ""
+        font = pygame.font.SysFont("Arial", 32)
+        input_active = True
+
+        while input_active:
+            self.screen.fill(BLACK)
+            prompt_text = font.render("Enter your name (or press Enter for Guest):":, True, WHITE)
+            name_text = font.render(name or "Guest", True, GREEN)
+            self.screen.blit(prompt_text, (WIDTH // 6, HEIGHT // 3))
+            self.screen.blit(name_text, (WIDTH // 2 - 50, HEIGHT // 2))
+            pygame.display.flip()
+
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    exit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RETURN:
+                        input_active = False
+                    elif event.key = pygame.K_BACKSPACE:
+                        name = name[:-1]
+                    else:
+                        name += event.unicode
+
+        name = name.strip() if name.strip() else "Guest"
+        self.score_manager.add_score(name, self.score)
+        
+
+
+
+    
+
+
+
+
+
+
+
+
 
         pygame.quit()
 
