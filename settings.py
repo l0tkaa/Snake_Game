@@ -1,5 +1,5 @@
 # Game Window Size
-WIDTH, HEIGHT = 600, 400
+WIDTH, HEIGHT = 600, 600
 BLOCK_SIZE = 10
 FPS = 10 # Lower = slower, Higher = faster snake
 
