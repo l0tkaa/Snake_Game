@@ -33,6 +33,12 @@ A **classic Snake game** built using Python and Pygame. The player controls a sn
 ✔ **Restart Option (`R` After Game Over)**  
 ✔ **Exit Only with `ESC` After Viewing High Scores**  
 
+![image](https://github.com/user-attachments/assets/816ecac9-2867-4a53-9c88-b6cd9d2a2c13)
+![image](https://github.com/user-attachments/assets/2a2dea45-ebd3-4a1d-b031-895748f33552)
+![image](https://github.com/user-attachments/assets/ab268c1b-482a-420b-8efb-dcaf922b46f7)
+
+
+
 ## 🚀 Installation & Setup
 
 1. **Clone the repository**:
