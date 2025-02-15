@@ -43,7 +43,7 @@ A **classic Snake game** built using Python and Pygame. The player controls a sn
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/yourusername/snake-game.git
-   cd snake-game
+   git clone https://github.com/l0tkaa/Snake_Game.git
+   cd Snake_Game
 
 
