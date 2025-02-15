@@ -33,6 +33,8 @@ class GameManager:
             self.update()
             self.draw()
             self.clock.tick(self.fps)
+        
+        self.show_death_screen()
 
         # ✅ Handle game over and name entry
         self.get_player_name()
@@ -163,7 +165,7 @@ class GameManager:
 
         # Instructions (centered)
         instructions = [
-            "Press any key to start",
+            "Press S key to start",
             "CONTROLS:",
             "Move Up    - Arrow Up",
             "Move Down  - Arrow Down",
@@ -196,3 +198,19 @@ class GameManager:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_f:
                         waiting = False  # Start game when a key is pressed
+
+    def show_death_screen(self):
+        self.screen.fill((0,0,0)) #clear screen
+
+        death_image = pygame.image.load("assets/images/you_died.png")
+
+        death_image = pygame.transform.scale(death_image, (600,600))
+
+        image_rect = death_image.get_rect(center = (WIDTH //2, HEIGHT // 2))
+
+        self.screen.blit(death_image, image_rect)
+
+        pygame.display.flip()
+
+        pygame.time.delay(2000)
+
